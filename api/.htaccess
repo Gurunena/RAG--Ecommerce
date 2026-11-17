@@ -1,0 +1,14 @@
+# The PHP files here are endpoints; the includes below are not meant to be
+# fetched directly. They print nothing if they are, but deny them anyway so a
+# misconfigured server can never serve the credentials as plain text.
+# Includes: config*, bootstrap, db, helpers, catalog, and anything an
+# endpoint folder names with a leading underscore (_review_rules.php etc).
+<FilesMatch "^(config|config\.local|bootstrap|db|helpers|catalog)\.php$|^_.*\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>

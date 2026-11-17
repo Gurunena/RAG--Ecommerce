@@ -1,0 +1,19 @@
+# api/lib/ — shared library code, included by endpoints. Not endpoints.
+#
+# api/.htaccess denies includes by name (config, bootstrap, db, helpers,
+# catalog) and by leading underscore. Files here match neither, so without
+# this rule they are served: risk_engine.php answered HTTP 200.
+#
+# It prints nothing today — it is only function definitions — so nothing
+# leaked. The point is that the NEXT library file added here should not
+# have to be harmless for that to stay true.
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
+
+Options -Indexes

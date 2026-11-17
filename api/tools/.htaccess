@@ -1,0 +1,27 @@
+# api/tools/ — CLI scripts. NOTHING here may be reached over HTTP.
+#
+# These are not endpoints. Run over the web they would be catastrophic:
+#
+#   test_admin.php            creates accounts, suspends users, refunds
+#                             orders and then DELETEs its fixtures — with no
+#                             authentication, because a CLI script has no
+#                             session to check
+#   export_products_json.php  overwrites data/products.json
+#   audit.php                 prints every endpoint and its gate
+#
+# api/.htaccess denies includes by name and by leading underscore, which
+# these files do not match — so they need their own rule.
+#
+# This is the FIRST of two locks. Each script also refuses to run unless
+# PHP_SAPI is 'cli', because this file only takes effect where Apache was
+# configured with AllowOverride All. Neither lock is relied on alone.
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
+
+Options -Indexes

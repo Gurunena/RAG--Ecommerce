@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seller dashboard — Consult</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/seller-dashboard.css">
+</head>
+<body data-page="seller-dashboard">
+
+<nav class="editorial">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="images/consult-mark.png" alt="" width="31" height="31"
+           style="object-fit:contain; flex:none">
+      <div class="logo-copy">
+        <div class="logo-text">Consult</div>
+        <div class="logo-tagline">AI Shopping Consultant</div>
+      </div>
+    </a>
+    <div class="nav-mid">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="products.html" data-nav="products">Shop</a>
+      <a href="index.html#chat" class="nav-ask" data-nav="chat">Ask the consultant</a>
+      <a href="seller-register.html" data-nav="seller-register">For Sellers</a>
+      <div id="navMidExtra" style="display:contents"></div>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn nav-search-btn" onclick="location.href='products.html'" aria-label="Search products">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="7" stroke="#1B2A4A" stroke-width="1.8"/>
+          <path d="M20 20l-3.5-3.5" stroke="#8B2E3C" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='index.html#chat'" aria-label="Ask">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="#8B2E3C"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='cart.html'" aria-label="Cart">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+          <path d="M3 4h2.2l2.3 11.5a1.5 1.5 0 001.5 1.2h8.6a1.5 1.5 0 001.5-1.2L20.5 8H6"
+                stroke="#1B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="20" r="1.3" fill="#8B2E3C"/>
+          <circle cx="17" cy="20" r="1.3" fill="#8B2E3C"/>
+        </svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+      <div id="navAuthArea"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- seller console: sidebar + (top bar, section content). The sidebar and
+     top bar are rendered by js/seller-dashboard.js so badges/avatar stay
+     in sync with the data; #sellerBody is the only part a view switch replaces. -->
+<div class="dash sd" id="dash" data-role="seller">
+  <aside class="sd-side" id="sdSide" aria-label="Dashboard sections"></aside>
+  <div class="sd-scrim" id="sdScrim" data-act="close-drawer"></div>
+  <div class="sd-main">
+    <header class="sd-top" id="sdTop"></header>
+    <main class="sd-content" id="sellerBody" aria-live="polite"></main>
+  </div>
+</div>
+
+<!-- seller-facing AI assistant: floating launcher + docked chat panel.
+     Lives outside #sellerBody so the thread survives section switches. -->
+<button type="button" class="sd-ai-launch" id="sdAiLaunch" data-act="ai-open" aria-label="Open Consult AI Assistant" hidden>
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="currentColor"/><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" fill="currentColor"/></svg>
+  <span>Ask AI</span>
+</button>
+<section class="sd-ai" id="sdAi" role="dialog" aria-modal="false" aria-labelledby="sdAiTitle" hidden>
+  <header class="sd-ai-head">
+    <span class="sd-ai-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="currentColor"/></svg></span>
+    <div class="sd-ai-title">
+      <strong id="sdAiTitle">Consult AI Assistant</strong>
+      <span>Insights about your store · beta</span>
+    </div>
+    <button type="button" class="sd-icon-btn" data-act="ai-clear" title="Clear conversation" aria-label="Clear conversation">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button type="button" class="sd-icon-btn" data-act="ai-close" title="Close" aria-label="Close assistant">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+  <div class="sd-ai-thread" id="sdAiThread" aria-live="polite"></div>
+  <div class="sd-ai-chips" id="sdAiChips"></div>
+  <form class="sd-ai-input" id="sdAiForm" autocomplete="off">
+    <input id="sdAiText" type="text" placeholder="Ask about sales, stock, listings…" aria-label="Message the assistant" maxlength="400">
+    <button type="submit" class="sd-ai-send" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 12l16-8-6 16-2.5-6.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    </button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About Us</a> · <a href="contact.html">Contact Us</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a>
+  </div>
+  © 2026 Consult · Made in Sri Lanka<br>
+</footer>
+
+<div class="modal-overlay" id="logoutModal" onclick="if(event.target===this) closeLogoutModal()">
+  <div class="modal-box">
+    <h3 class="serif">Sign out?</h3>
+    <p class="muted" style="font-size:13px; margin:8px 0 20px">You'll need to sign in again to view your cart, orders, or dashboard.</p>
+    <div style="display:flex; gap:10px">
+      <button type="button" class="btn btn-ghost" style="flex:1" onclick="closeLogoutModal()">Cancel</button>
+      <button type="button" class="btn" style="flex:1; background:var(--maroon); color:#fff" onclick="confirmLogout()">Sign out</button>
+    </div>
+  </div>
+</div>
+
+<!-- one modal shell for every dashboard dialog (product form, confirmations) -->
+<div class="modal-overlay" id="dashModal">
+  <div class="modal-box dmodal" id="dashModalBox" role="dialog" aria-modal="true"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/seed.js"></script>
+<script src="js/api.js"></script>
+<script src="js/common.js"></script>
+<script src="js/dash-common.js"></script>
+<script src="js/seller-dashboard.js"></script>
+</body>
+</html>

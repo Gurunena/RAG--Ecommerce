@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consult — Sri Lanka's AI shopping consultant</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="apple-touch-icon" href="images/consult-icon.png">
+</head>
+<body data-page="home">
+
+<nav class="editorial">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="images/consult-mark.png" alt="" width="31" height="31"
+           style="object-fit:contain; flex:none">
+      <div class="logo-copy">
+        <div class="logo-text">Consult</div>
+        <div class="logo-tagline">AI Shopping Consultant</div>
+      </div>
+    </a>
+    <div class="nav-mid">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="products.html" data-nav="products">Shop</a>
+      <a href="index.html#chat" class="nav-ask" data-nav="chat">Ask the consultant</a>
+      <a href="seller-register.html" data-nav="seller-register">For Sellers</a>
+      <div id="navMidExtra" style="display:contents"></div>
+    </div>
+
+    <div class="nav-right">
+      <button class="icon-btn" onclick="location.href='products.html'" aria-label="Search products">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="7" stroke="#1B2A4A" stroke-width="1.8"/>
+          <path d="M20 20l-3.5-3.5" stroke="#8B2E3C" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='index.html#chat'" aria-label="Ask">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="#8B2E3C"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='cart.html'" aria-label="Cart">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+          <path d="M3 4h2.2l2.3 11.5a1.5 1.5 0 001.5 1.2h8.6a1.5 1.5 0 001.5-1.2L20.5 8H6"
+                stroke="#1B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="20" r="1.3" fill="#8B2E3C"/>
+          <circle cx="17" cy="20" r="1.3" fill="#8B2E3C"/>
+        </svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+      <div id="navAuthArea"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME (hero) -->
+<div class="page active" id="page-home">
+
+  <!-- SHOWROOM (AI product carousel hero) -->
+  <section class="showroom" id="showroom">
+    <img class="showroom-photo" src="images/hero-shopper.png" alt="" aria-hidden="true">
+    <div class="showroom-ground" aria-hidden="true"></div>
+
+    <div class="showroom-inner shell">
+      <div class="showroom-copy">
+        <div class="eyebrow-badge">
+        </div>
+        <p class="showroom-line"></p>
+
+        <div class="showroom-dots" id="showroomDots" role="tablist" aria-label="Featured products"></div>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <div class="shell">
+    <!-- ASK BAR (overlaps the bottom of the hero photo) -->
+    <div class="ask-wrap">
+      <form class="ask-shell" id="heroForm" autocomplete="off">
+        <svg class="ask-shell-icon" width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="#D4A83C"/></svg>
+        <input id="heroInput" placeholder="e.g. I need a laptop for programming, budget 180,000…">
+        <button type="submit" class="ask-submit" aria-label="Ask the consultant">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#1B2A4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+
+      <div class="hero-actions" style="justify-content:center">
+        <button type="button" class="hero-action-pill" id="voiceSearchBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3z" stroke="#1B2A4A" stroke-width="1.6"/><path d="M19 11a7 7 0 01-14 0M12 18v3" stroke="#1B2A4A" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Voice Search
+        </button>
+        <button type="button" class="hero-action-pill" id="imageSearchBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2.5" stroke="#1B2A4A" stroke-width="1.6"/><circle cx="9" cy="10" r="2" stroke="#1B2A4A" stroke-width="1.6"/><path d="M21 16l-5.5-5.5L4 21" stroke="#1B2A4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Search by Image
+        </button>
+        <button type="button" class="hero-action-pill accent" id="aiAdviceBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="#D4A83C"/></svg>
+          Get AI Advice
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FEATURE STRIP (scooped top edge) -->
+  <div class="feature-strip">
+    <div class="strip-curve" aria-hidden="true">
+      <svg viewBox="0 0 1440 34" preserveAspectRatio="none">
+        <path d="M0,0 L1440,0 L1440,34 C1020,2 420,2 0,34 Z"/>
+      </svg>
+    </div>
+    <div class="shell feature-strip-grid reveal-stagger">
+      <div class="fs-item">
+        <div class="fs-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H9l-5 4V5z" stroke="#D4A83C" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3>Chat Naturally</h3>
+      </div>
+      <div class="fs-item alt">
+        <div class="fs-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#8B2E3C" stroke-width="1.6"/><path d="M9.5 9.5a2.5 2.5 0 014.9.7c0 1.7-2.4 1.9-2.4 3.6" stroke="#8B2E3C" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="17" r="1" fill="#8B2E3C"/></svg></div>
+        <h3>AI Asks When Needed</h3>
+      </div>
+      <div class="fs-item">
+        <div class="fs-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="#D4A83C" stroke-width="1.6"/><path d="M20 20l-4.3-4.3M8 10.5l1.6 1.8L13.5 8" stroke="#D4A83C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>See Why It Fits</h3>
+      </div>
+      <div class="fs-item alt">
+        <div class="fs-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2.5" stroke="#8B2E3C" stroke-width="1.6"/><path d="M8 10V7.5a4 4 0 018 0V10" stroke="#8B2E3C" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Buy With Confidence</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST  -->
+  <div class="trust reveal reveal-stagger" style="margin-top:0px" id="trustStats">
+    <div class="trust-item">
+      <div class="stat-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5.4c0 4.3-2.9 7.8-7 8.9-4.1-1.1-7-4.6-7-8.9V6z" stroke="#8B2E3C" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2.1 2.1L15.4 10" stroke="#D4A83C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="trust-num" data-count="1240">1,240</div>
+      <div class="trust-lbl">verified sellers</div>
+    </div>
+    <div class="trust-item">
+      <div class="stat-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 5-9 5-9-5z" stroke="#1B2A4A" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 13l9 5 9-5" stroke="#D4A83C" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="trust-num" data-count="52800">52,800</div>
+      <div class="trust-lbl">products listed</div>
+    </div>
+    <div class="trust-item">
+      <div class="stat-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M2 7h11v9H2z" stroke="#1B2A4A" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 10h4l3 3v3h-7z" stroke="#8B2E3C" stroke-width="1.5" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="1.5" fill="#D4A83C"/><circle cx="17" cy="18" r="1.5" fill="#D4A83C"/></svg>
+      </div>
+      <div class="trust-num">Island-wide</div>
+      <div class="trust-lbl">delivery</div>
+    </div>
+    <div class="trust-item">
+      <div class="stat-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4.5" y="10.5" width="15" height="9" rx="2.2" stroke="#1B2A4A" stroke-width="1.5"/><path d="M8 10.5V7.8a4 4 0 018 0v2.7" stroke="#8B2E3C" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="15" r="1.5" fill="#D4A83C"/></svg>
+      </div>
+      <div class="trust-num">Held</div>
+      <div class="trust-lbl">until delivered</div>
+    </div>
+  </div>
+  
+  <br>
+
+  <!-- ============ TRENDING (asymmetric: one hero card + a rail) ============ -->
+  <div class="shell sec">
+    <div class="sec-head reveal">
+      <h2>Trending this week</h2>
+      <span>what shoppers are asking for most · <a href="products.html">see all products →</a></span>
+    </div>
+
+    <div class="trend-split">
+      <div class="trend-feature reveal" id="trendFeature">
+        <div class="skeleton" style="height:360px; border-radius:var(--r-lg)"></div>
+      </div>
+
+      <div class="carousel-wrap reveal">
+        <button class="arrow l" onclick="scrollTrend(-1)">‹</button>
+        <div class="carousel reveal-stagger" id="trendTrack">
+          <div class="pcard"><div class="skeleton" style="height:118px"></div></div>
+          <div class="pcard"><div class="skeleton" style="height:118px"></div></div>
+          <div class="pcard"><div class="skeleton" style="height:118px"></div></div>
+        </div>
+        <button class="arrow r" onclick="scrollTrend(1)">›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULL QUOTE  -->
+  <section class="pullquote reveal">
+    <div class="batik-weave"></div>
+    <div class="shell pullquote-inner">
+      <span class="pq-mark" aria-hidden="true">✦</span>
+      <blockquote class="serif">
+        We'd rather talk you <em>out</em> of a sale than sell you the wrong thing.
+      </blockquote>
+      <p class="pq-sub">When nothing in the catalogue genuinely fits your brief, the consultant says so — and tells you what would have to change. That refusal is the product.</p>
+    </div>
+  </section>
+
+  <!-- ============ DISCOVER WITH AI (sticky copy, editorial rail) ============ -->
+  <div class="shell sec discover-sec">
+    <div class="discover-grid">
+      <div class="discover-copy reveal">
+        <div class="eyebrow">Discover with AI</div>
+        <h2 class="serif">Let the consultant shortlist it for you</h2>
+        <p class="muted">Skip the endless scrolling — describe what matters and get a short list explained in plain language, not just a spec dump.</p>
+        <div class="pill-light" onclick="startChat('A laptop for programming, budget 180000')">Try a sample question
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="discover-hint mono">scroll the shortlist →</div>
+      </div>
+      <div class="discover-products reveal">
+        <div class="carousel-wrap">
+          <button class="arrow l" onclick="scrollDiscover(-1)">‹</button>
+          <div class="carousel reveal-stagger" id="discoverTrack">
+            <div class="pcard"><div class="skeleton" style="height:118px"></div></div>
+            <div class="pcard"><div class="skeleton" style="height:118px"></div></div>
+            <div class="pcard"><div class="skeleton" style="height:118px"></div></div>
+          </div>
+          <button class="arrow r" onclick="scrollDiscover(1)">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= PRODUCT GRID ================= -->
+<div class="band-surface">
+<section class="home-products shell">
+
+  <div class="products-heading reveal">
+    <div>
+      <span class="section-eyebrow">CURATED FOR YOU</span>
+      <h2>Popular products</h2>
+      <p>Explore products recommended by Consult AI.</p>
+    </div>
+
+    <button class="view-all-btn" onclick="showAllProducts()">
+      <a href="products.html" aria-label="View all products">
+        View all →
+      </a>
+    </button>
+  </div>
+
+  <!-- Category filters -->
+  <div class="product-filters reveal" id="productFilters">
+    <button class="product-filter active" onclick="filterProducts('all', this)">
+      All
+    </button>
+
+    <button class="product-filter" onclick="filterProducts('laptop', this)">
+      💻 Laptops
+    </button>
+
+    <button class="product-filter" onclick="filterProducts('phone', this)">
+      📱 Phones
+    </button>
+
+    <button class="product-filter" onclick="filterProducts('audio', this)">
+      🎧 Audio
+    </button>
+
+    <button class="product-filter" onclick="filterProducts('camera', this)">
+      📷 Cameras
+    </button>
+
+    <button class="product-filter" onclick="filterProducts('appliance', this)">
+      🏠 Appliances
+    </button>
+  </div>
+
+  <!-- Product grid -->
+ <div class="home-product-grid reveal-stagger" id="homeProductGrid"></div>
+</section>
+</div>
+
+<br>
+
+
+
+  <!-- ============ DARK FEATURE PANEL ============ -->
+  <div class="shell" style="padding-bottom:20px">
+    <section class="panel reveal">
+      <div class="batik-weave"></div>
+      <h2 id="panelHead">Real reasoning, not a ranked list of whatever pays the most.</h2>
+
+      <div class="panel-grid">
+        <div>
+          <div class="feat-icon" id="featIcon"></div>
+          <div class="feat-title" id="featTitle">Grounded in real specs</div>
+          <p class="feat-body" id="featBody">Every recommendation is built from verified seller data — RAM, battery, warranty terms. If a spec isn't confirmed, we say so instead of guessing.</p>
+          <div class="feat-nav" >
+            <button onclick="featStep(-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button onclick="featStep(1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="pdots" id="pdots"></div>
+        </div>
+
+        <div class="feat-media" id="featMedia">
+          <svg viewBox="0 0 700 440" preserveAspectRatio="xMidYMid meet" id="featArt" role="img" aria-label="Animated illustration of how Consult works"></svg>
+          <!-- promotional carousel — replaces the SVG scene on slides that carry promos -->
+          <div class="feat-promo" id="featPromo" hidden>
+            <div class="feat-promo-track" id="featPromoTrack"></div>
+            <div class="feat-promo-scrim"></div>
+            <div class="promo-dots" id="promoDots"></div>
+          </div>
+          <div class="feat-label">
+            <div class="fl-1" id="featMediaT">ThinkPad E14</div>
+            <div class="fl-2" id="featMediaS">recommended for 7 of 10 student briefs</div>
+          </div>
+          <button class="feat-play" id="featPlay" type="button" aria-label="Pause animation" aria-pressed="false" onclick="toggleFeatPlay()">❚❚</button>
+          
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- ============ HOW IT WORKS (bento) ============ -->
+  <div class="shell sec">
+    <div class="eyebrow reveal" style="text-align:center">How it works</div>
+    <h2 class="bento-head reveal">Shopping, minus the searching</h2>
+
+    <div class="bento reveal-stagger">
+      <div class="step bento-cell wide">
+        <div class="step-num">1</div>
+        <h3>Describe what you need</h3>
+        <p>Budget, purpose, brand preference — in plain words, the way you'd ask a friend who knows electronics. No filters, no dropdowns, no category tree.</p>
+        <div class="bento-said mono">“a laptop for programming, budget 180,000”</div>
+      </div>
+
+      <div class="step bento-cell">
+        <div class="step-num">2</div>
+        <h3>Get a short list, not 200 results</h3>
+        <p>Two or three real options, each with a straight answer on why it fits you and what it trades off.</p>
+      </div>
+
+      <div class="step bento-cell">
+        <div class="step-num">3</div>
+        <h3>Buy from any seller, once</h3>
+        <p>One cart across every shop, one payment, held safely until each parcel actually arrives.</p>
+      </div>
+
+      <div class="bento-cell bento-accent wide">
+        <div class="batik-weave"></div>
+        <div class="bento-accent-inner">
+          <div class="bento-stat serif">3 questions</div>
+          <p>is usually all it takes to go from “I need something” to a decision you can defend.</p>
+          <div class="pill-light" onclick="startChat('I need a laptop for programming, budget 180000')">Try it now
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TRACKER ============ -->
+  <div class="shell sec reveal" style="padding-top:10px">
+    <div class="eyebrow" style="text-align:center">Order journey</div>
+    <h2 style="text-align:center; font-size:25px; margin:6px 0 10px">From checkout to your doorstep</h2>
+    <div class="tracker" id="tracker">
+      <div class="t-line"></div>
+      <div class="t-fill" id="tFill"></div>
+      <svg id="scooter" class="scooter" viewBox="0 0 64 42" width="54" height="36">
+        <circle class="wheel" cx="14" cy="33" r="6.5" fill="none" stroke="#1B2A4A" stroke-width="2.4"/>
+        <circle class="wheel" cx="47" cy="33" r="6.5" fill="none" stroke="#1B2A4A" stroke-width="2.4"/>
+        <path d="M10 33 L20 19 L36 19 L42 33" stroke="#8B2E3C" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="36" y="8" width="18" height="13" rx="3" fill="#D4A83C"/>
+        <path d="M45 8v13M36 14.5h18" stroke="#8B2E3C" stroke-width="1.4"/>
+        <path d="M20 19 L15 9" stroke="#8B2E3C" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <div class="t-points">
+        <div class="t-point on"><div class="t-dot"></div><div class="t-lbl">Ordered</div></div>
+        <div class="t-point"><div class="t-dot"></div><div class="t-lbl">Packed</div></div>
+        <div class="t-point"><div class="t-dot"></div><div class="t-lbl">Shipped</div></div>
+        <div class="t-point"><div class="t-dot"></div><div class="t-lbl">Delivered</div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="closing-cta reveal">
+    <div class="shell closing-inner">
+      <div class="eyebrow">Ready when you are</div>
+      <h2 class="serif closing-h">Tell us what you need.<br>We'll do the reasoning.</h2>
+      <p class="muted closing-sub">One sentence is enough to start. The consultant asks a question if something's unclear, then explains every pick in plain language.</p>
+      <button type="button" class="btn btn-primary closing-btn" onclick="startChat('I need help choosing a product')">
+        Start a conversation
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px; margin-left:6px"><path d="M5 12h14M13 6l6 6-6 6" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ BOTTOM TRUST STRIP ============ -->
+  <div class="shell" style="padding-bottom:44px">
+    <div class="icon-trust-strip reveal reveal-stagger">
+      <div class="its-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2.5" stroke="#1B2A4A" stroke-width="1.6"/><path d="M8 10V7.5a4 4 0 018 0V10" stroke="#1B2A4A" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Secure Payments
+      </div>
+      <div class="its-item">
+        <svg width="20" height="14" viewBox="0 0 64 42" fill="none"><circle cx="14" cy="33" r="6.5" fill="none" stroke="#1B2A4A" stroke-width="2.4"/><circle cx="47" cy="33" r="6.5" fill="none" stroke="#1B2A4A" stroke-width="2.4"/><path d="M10 33 L20 19 L36 19 L42 33" stroke="#8B2E3C" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="36" y="8" width="18" height="13" rx="3" fill="#D4A83C"/></svg>
+        Fast &amp; Reliable Delivery
+      </div>
+      <div class="its-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3" stroke="#1B2A4A" stroke-width="1.6" stroke-linecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="#1B2A4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Easy Returns
+      </div>
+      <div class="its-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#1B2A4A" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="#8B2E3C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        24/7 Customer Support
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CHAT / NEW CONSULT WORKSPACE ==================== -->
+<div class="page" id="page-chat">
+
+  <aside class="consult-sidebar">
+    <div class="consult-side-brand">
+      <img src="images/consult-mark.png" alt="" width="38" height="38"
+           style="object-fit:contain; flex:none">
+      <div>
+        <div class="consult-side-title">Consult</div>
+        <div class="consult-side-tag">AI SHOPPING CONSULTANT</div>
+      </div>
+    </div>
+
+    <button class="consult-new-chat" type="button" onclick="newConsultChat()">
+      <span class="new-chat-plus">＋</span>
+      <span>New chat</span>
+    </button>
+
+    <button class="consult-search-chat" type="button" aria-label="Search chats">
+      <span>⌕</span>
+      <span>Search chats</span>
+    </button>
+
+    <div class="consult-recent-label">Recent</div>
+    <div class="consult-recent">
+      <button type="button">Best laptop for programming</button>
+      <button type="button">Gaming laptop under 250K</button>
+      <button type="button">Best phone for photography</button>
+      <button type="button">Student headphones</button>
+      <button type="button">Refrigerator for a family</button>
+    </div>
+
+    <div class="consult-side-bottom">
+      <button type="button">⚙ <span>Settings</span></button>
+      <a href="index.html">← <span>Back to Discover</span></a>
+    </div>
+  </aside>
+
+  <section class="consult-chat-main">
+    <header class="consult-chat-topbar">
+      <div class="consult-chat-title">
+        <span class="consult-status-dot"></span>
+        Consult AI
+      </div>
+      <div class="consult-chat-actions">
+        <button type="button" onclick="location.href='products.html'" aria-label="Shop">Shop</button>
+        <button type="button" onclick="location.href='cart.html'" aria-label="Cart">Cart</button>
+      </div>
+    </header>
+
+    <div class="consult-chat-scroll" id="chatScroll">
+      <div class="chat-welcome" id="chatWelcome">
+        <div class="chat-welcome-mark">✦</div>
+        <h1>How can I help you <span>shop?</span></h1>
+        <p>Tell me what you need in your own words. I'll compare products, explain the differences, and help you choose with confidence.</p>
+
+        <div class="chat-product-grid" id="chatProductGrid"></div>
+      </div>
+
+      <div id="feed"></div>
+    </div>
+
+    <div class="consult-composer-wrap">
+      <form class="askbox composer-inner consult-composer" id="chatForm" autocomplete="off">
+        <span class="composer-spark">✦</span>
+        <input id="chatInput" placeholder="Ask anything about products..." aria-label="Ask the consultant">
+        <button type="submit" class="consult-send" aria-label="Send">→</button>
+      </form>
+
+      <div class="consult-suggestions">
+        <button type="button" onclick="setConsultQuestion('I need a laptop for programming')">💻 Laptop for programming</button>
+        <button type="button" onclick="setConsultQuestion('Best phone under 150,000')">📱 Phone under 150K</button>
+        <button type="button" onclick="setConsultQuestion('Best headphones for students')">🎧 Student headphones</button>
+      </div>
+      <div class="consult-disclaimer">Consult can make mistakes. Check important product details before buying.</div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About Us</a> · <a href="contact.html">Contact Us</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a>
+  </div >
+  © 2026 Consult · Made in Sri Lanka<br>
+
+</footer>
+
+<div class="modal-overlay" id="logoutModal" onclick="if(event.target===this) closeLogoutModal()">
+  <div class="modal-box">
+    <h3 class="serif">Sign out?</h3>
+    <p class="muted" style="font-size:13px; margin:8px 0 20px">You'll need to sign in again to view your cart, orders, or dashboard.</p>
+    <div style="display:flex; gap:10px">
+      <button type="button" class="btn btn-ghost" style="flex:1" onclick="closeLogoutModal()">Cancel</button>
+      <button type="button" class="btn" style="flex:1; background:var(--maroon); color:#fff" onclick="confirmLogout()">Sign out</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/seed.js"></script>
+<script src="js/api.js"></script>
+<script src="js/common.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

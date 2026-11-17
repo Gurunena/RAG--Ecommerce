@@ -1,0 +1,488 @@
+{
+    "meta": {
+        "generated_at": "2026-11-08T21:35:13+05:30",
+        "generated_by": "api/tools/export_products_json.php",
+        "source": "MySQL database \"consult\"",
+        "products": 8,
+        "sellers": 4,
+        "note": "Regenerate with: php api/tools/export_products_json.php — then RESTART the AI service, which only reads this file at startup."
+    },
+    "sellers": [
+        {
+            "id": "s1",
+            "name": "Colombo Tech Hub",
+            "city": "Colombo 03",
+            "rating": 4.8,
+            "verified": true
+        },
+        {
+            "id": "s2",
+            "name": "Nexus Computers",
+            "city": "Nugegoda",
+            "rating": 4.6,
+            "verified": true
+        },
+        {
+            "id": "s3",
+            "name": "Island Mobile",
+            "city": "Kandy",
+            "rating": 4.4,
+            "verified": true
+        },
+        {
+            "id": "s4",
+            "name": "HomeLine Appliances",
+            "city": "Dehiwala",
+            "rating": 4.7,
+            "verified": true
+        }
+    ],
+    "products": [
+        {
+            "id": "p1",
+            "sellerId": "s1",
+            "category": "laptop",
+            "icon": "laptop",
+            "title": "Lenovo ThinkPad E14 Gen 5",
+            "subtitle": "Ryzen 7 7730U · 16GB · 512GB",
+            "image": "images/thinkpad-e14.webp",
+            "price": 172500,
+            "oldPrice": 189000,
+            "currency": "LKR",
+            "stock": 7,
+            "tags": [
+                "programming",
+                "student",
+                "battery",
+                "durable"
+            ],
+            "specs": {
+                "RAM": "16GB DDR4",
+                "Storage": "512GB NVMe SSD",
+                "Battery": "10 hrs",
+                "Weight": "1.49 kg",
+                "Warranty": "3 years local"
+            },
+            "why": "16GB of RAM comfortably runs an IDE alongside Docker containers, and the 3-year local warranty matters more than raw benchmarks when you need this to survive four years of daily use.",
+            "rating": 4.7,
+            "reviews": 128,
+            "badge": "best match",
+            "images": [
+                "images/thinkpad-e14.webp"
+            ],
+            "ratingBreakdown": {
+                "5": 74,
+                "4": 18,
+                "3": 5,
+                "2": 2,
+                "1": 1
+            },
+            "reviewsList": [
+                {
+                    "name": "Dilshan P.",
+                    "rating": 5,
+                    "date": "2026-06-18",
+                    "verified": true,
+                    "helpful": 24,
+                    "text": "Been running Docker plus IntelliJ on this for three months without a stutter. The 16GB is doing the heavy lifting — I never think about RAM anymore. Build quality is proper ThinkPad."
+                },
+                {
+                    "name": "Nuwan J.",
+                    "rating": 5,
+                    "date": "2026-05-02",
+                    "verified": true,
+                    "helpful": 16,
+                    "text": "Bought it mainly for the 3-year local warranty and I'm glad I did — had a keyboard issue in month two, sorted in Colombo in four days, no shipping abroad."
+                },
+                {
+                    "name": "Hasini R.",
+                    "rating": 4,
+                    "date": "2026-04-21",
+                    "verified": true,
+                    "helpful": 9,
+                    "text": "Battery genuinely lasts a full lecture day. Only gripe is the screen — it's fine, but after seeing an OLED I can tell the difference. Everything else is excellent."
+                },
+                {
+                    "name": "Kasun M.",
+                    "rating": 5,
+                    "date": "2026-03-09",
+                    "verified": false,
+                    "helpful": 5,
+                    "text": "Keyboard is the best I've typed on in this price range. Runs cool even with a dozen tabs and a compile going."
+                },
+                {
+                    "name": "Tharindu S.",
+                    "rating": 4,
+                    "date": "2026-02-14",
+                    "verified": true,
+                    "helpful": 3,
+                    "text": "Solid workhorse. A bit plain looking if you care about that, but it does exactly what it says."
+                }
+            ]
+        },
+        {
+            "id": "p2",
+            "sellerId": "s2",
+            "category": "laptop",
+            "icon": "laptop",
+            "title": "ASUS Vivobook 15 OLED",
+            "subtitle": "Core i5-1335U · 16GB · 512GB",
+            "image": "images/vivobook-15-oled.webp",
+            "price": 164900,
+            "oldPrice": null,
+            "currency": "LKR",
+            "stock": 4,
+            "tags": [
+                "programming",
+                "student",
+                "display"
+            ],
+            "specs": {
+                "RAM": "16GB DDR4",
+                "Storage": "512GB SSD",
+                "Battery": "7 hrs",
+                "Weight": "1.7 kg",
+                "Warranty": "1 year"
+            },
+            "why": "Cheaper with a noticeably better OLED screen, but a shorter battery life and a one-year warranty make it the value pick rather than the long-haul pick.",
+            "rating": 4.4,
+            "reviews": 86,
+            "badge": null,
+            "images": [
+                "images/vivobook-15-oled.webp"
+            ],
+            "ratingBreakdown": {
+                "5": 58,
+                "4": 26,
+                "3": 10,
+                "2": 4,
+                "1": 2
+            },
+            "reviewsList": [
+                {
+                    "name": "Amaya F.",
+                    "rating": 5,
+                    "date": "2026-06-30",
+                    "verified": true,
+                    "helpful": 19,
+                    "text": "The OLED screen is the whole reason to buy this. Colours are gorgeous and text is razor sharp — I stare at it eight hours a day and my eyes are happier."
+                },
+                {
+                    "name": "Ruwan D.",
+                    "rating": 4,
+                    "date": "2026-05-19",
+                    "verified": true,
+                    "helpful": 12,
+                    "text": "Great value for the money. Battery is the weak point exactly as described — I get about 6-7 hours, so I carry the charger. Worth it for the display."
+                },
+                {
+                    "name": "Sanduni K.",
+                    "rating": 4,
+                    "date": "2026-04-03",
+                    "verified": true,
+                    "helpful": 6,
+                    "text": "Light enough to carry all day and handles my coursework fine. One year warranty is short, that's my only real complaint."
+                },
+                {
+                    "name": "Ishara P.",
+                    "rating": 5,
+                    "date": "2026-02-27",
+                    "verified": false,
+                    "helpful": 2,
+                    "text": "Cheaper than the ThinkPad and the screen is better. For my use — writing and browsing — it was the obvious pick."
+                }
+            ]
+        },
+        {
+            "id": "p3",
+            "sellerId": "s2",
+            "category": "laptop",
+            "icon": "laptop",
+            "title": "ASUS TUF Gaming F15",
+            "subtitle": "Core i7 · RTX 3050 · 16GB",
+            "image": "images/tuf-gaming-f15.webp",
+            "price": 245000,
+            "oldPrice": null,
+            "currency": "LKR",
+            "stock": 3,
+            "tags": [
+                "gaming",
+                "graphics",
+                "performance"
+            ],
+            "specs": {
+                "RAM": "16GB DDR5",
+                "Storage": "512GB SSD",
+                "GPU": "RTX 3050 6GB",
+                "Battery": "5 hrs",
+                "Warranty": "2 years"
+            },
+            "why": "The RTX 3050 handles most current titles at 1080p high settings, and the TUF chassis is built for heat — the trade-off is weight and a battery that won't last a lecture day.",
+            "rating": 4.6,
+            "reviews": 54,
+            "badge": "new",
+            "images": [
+                "images/tuf-gaming-f15.webp"
+            ],
+            "ratingBreakdown": null,
+            "reviewsList": []
+        },
+        {
+            "id": "p4",
+            "sellerId": "s3",
+            "category": "phone",
+            "icon": "phone",
+            "title": "Samsung Galaxy A55 5G",
+            "subtitle": "128GB · 8GB RAM",
+            "image": "images/galaxy-a55.webp",
+            "price": 139000,
+            "oldPrice": 149000,
+            "currency": "LKR",
+            "stock": 12,
+            "tags": [
+                "camera",
+                "battery",
+                "updates",
+                "midrange"
+            ],
+            "specs": {
+                "Battery": "5000 mAh",
+                "Camera": "50MP OIS",
+                "Display": "6.6\" AMOLED 120Hz",
+                "Updates": "5 years",
+                "Warranty": "1 year"
+            },
+            "why": "Optical image stabilisation is the reason low-light shots come out sharp here, and five years of software updates means it stays secure long after cheaper rivals stop receiving patches.",
+            "rating": 4.6,
+            "reviews": 210,
+            "badge": "trending",
+            "images": [
+                "images/galaxy-a55.webp"
+            ],
+            "ratingBreakdown": {
+                "5": 68,
+                "4": 22,
+                "3": 6,
+                "2": 3,
+                "1": 1
+            },
+            "reviewsList": [
+                {
+                    "name": "Menaka S.",
+                    "rating": 5,
+                    "date": "2026-07-05",
+                    "verified": true,
+                    "helpful": 31,
+                    "text": "The stabilisation is real — night shots at a wedding came out sharp where my old phone would have smeared everything. Camera alone justifies the price."
+                },
+                {
+                    "name": "Chamara W.",
+                    "rating": 5,
+                    "date": "2026-06-11",
+                    "verified": true,
+                    "helpful": 18,
+                    "text": "Five years of updates is why I chose this over the cheaper options. I keep phones for four years, so that maths matters more than a spec sheet."
+                },
+                {
+                    "name": "Nadeesha",
+                    "rating": 4,
+                    "date": "2026-05-08",
+                    "verified": true,
+                    "helpful": 11,
+                    "text": "Battery comfortably does a day and a half. Charging is not the fastest, but I charge overnight anyway so it has never bothered me."
+                },
+                {
+                    "name": "Roshan A.",
+                    "rating": 5,
+                    "date": "2026-03-22",
+                    "verified": true,
+                    "helpful": 7,
+                    "text": "Screen is bright enough to read in direct sun in Colombo, which was my main worry. Very happy."
+                },
+                {
+                    "name": "Ayesha F.",
+                    "rating": 4,
+                    "date": "2026-02-02",
+                    "verified": false,
+                    "helpful": 4,
+                    "text": "Good all-rounder. Slightly heavier than I expected but the camera makes up for it."
+                }
+            ]
+        },
+        {
+            "id": "p5",
+            "sellerId": "s3",
+            "category": "phone",
+            "icon": "phone",
+            "title": "Xiaomi Redmi Note 13 ",
+            "subtitle": "256GB · 8GB RAM",
+            "image": "images/redmi-note-13.webp",
+            "price": 118000,
+            "oldPrice": null,
+            "currency": "LKR",
+            "stock": 9,
+            "tags": [
+                "camera",
+                "battery",
+                "value"
+            ],
+            "specs": {
+                "Battery": "5100 mAh",
+                "Camera": "200MP",
+                "Display": "6.67\" AMOLED 120Hz",
+                "Updates": "2 years",
+                "Warranty": "1 year"
+            },
+            "why": "More storage and a bigger battery for twenty thousand less — the catch is a shorter update window, so it ages faster in software terms even if the hardware holds up.",
+            "rating": 4.3,
+            "reviews": 176,
+            "badge": "deal",
+            "images": [
+                "images/redmi-note-13.webp",
+                "images/WhatsApp Image 2026-08-20 at 12.18.45.jpeg",
+                "images/WhatsApp Image 2026-08-20 at 12.18.44.jpeg",
+                "images/WhatsApp Image 2026-08-20 at 12.18.44 (1).jpeg"
+            ],
+            "ratingBreakdown": null,
+            "reviewsList": []
+        },
+        {
+            "id": "p6",
+            "sellerId": "s1",
+            "category": "audio",
+            "icon": "headphones",
+            "title": "Sony WH-CH520",
+            "subtitle": "Wireless over-ear",
+            "image": "images/sony-wh-ch520.webp",
+            "price": 12900,
+            "oldPrice": 15500,
+            "currency": "LKR",
+            "stock": 25,
+            "tags": [
+                "audio",
+                "gift",
+                "budget"
+            ],
+            "specs": {
+                "Battery": "50 hrs",
+                "Type": "Over-ear wireless",
+                "Codec": "SBC / AAC",
+                "Warranty": "1 year"
+            },
+            "why": "Fifty hours of playback means charging roughly once a fortnight, which is the single feature people actually notice day to day at this price.",
+            "rating": 4.5,
+            "reviews": 340,
+            "badge": null,
+            "images": [
+                "images/sony-wh-ch520.webp"
+            ],
+            "ratingBreakdown": {
+                "5": 62,
+                "4": 25,
+                "3": 8,
+                "2": 3,
+                "1": 2
+            },
+            "reviewsList": [
+                {
+                    "name": "Lakmal G.",
+                    "rating": 5,
+                    "date": "2026-07-12",
+                    "verified": true,
+                    "helpful": 27,
+                    "text": "Fifty hours is not marketing — I charge these roughly once a fortnight. For the price there is genuinely nothing close."
+                },
+                {
+                    "name": "Sachini",
+                    "rating": 4,
+                    "date": "2026-06-04",
+                    "verified": true,
+                    "helpful": 14,
+                    "text": "Comfortable for long flights and they fold flat into a bag. No active noise cancelling at this price, which is fair — just don't expect it."
+                },
+                {
+                    "name": "Praveen R.",
+                    "rating": 5,
+                    "date": "2026-04-17",
+                    "verified": true,
+                    "helpful": 8,
+                    "text": "Bought as a gift and ended up buying a second pair for myself. Light, simple, the battery is the killer feature."
+                },
+                {
+                    "name": "Dinuka",
+                    "rating": 4,
+                    "date": "2026-03-01",
+                    "verified": false,
+                    "helpful": 3,
+                    "text": "Sound is clean if unexciting. Perfect for podcasts and calls, which is what I wanted."
+                }
+            ]
+        },
+        {
+            "id": "p7",
+            "sellerId": "s4",
+            "category": "appliance",
+            "icon": "fridge",
+            "title": "LG 190L Inverter Refrigerator",
+            "subtitle": "Single door · Smart inverter",
+            "image": "images/lg-190l-fridge.webp",
+            "price": 118000,
+            "oldPrice": 135000,
+            "currency": "LKR",
+            "stock": 5,
+            "tags": [
+                "family",
+                "kitchen",
+                "energy"
+            ],
+            "specs": {
+                "Capacity": "190 L",
+                "Type": "Single door",
+                "Compressor": "Smart inverter",
+                "Warranty": "10 yr compressor"
+            },
+            "why": "190 litres is comfortable for a family of four to five, and the inverter compressor is the part that keeps the monthly electricity bill down over years of running.",
+            "rating": 4.7,
+            "reviews": 62,
+            "badge": "deal",
+            "images": [
+                "images/lg-190l-fridge.webp"
+            ],
+            "ratingBreakdown": null,
+            "reviewsList": []
+        },
+        {
+            "id": "p8",
+            "sellerId": "s1",
+            "category": "camera",
+            "icon": "camera",
+            "title": "Canon EOS M50 Mark II",
+            "subtitle": "Mirrorless · 15-45mm kit",
+            "image": "images/canon-eos-m50.webp",
+            "price": 179000,
+            "oldPrice": 189500,
+            "currency": "LKR",
+            "stock": 2,
+            "tags": [
+                "camera",
+                "content",
+                "video"
+            ],
+            "specs": {
+                "Sensor": "24.1MP APS-C",
+                "Video": "4K / 1080p60",
+                "Screen": "Vari-angle touch",
+                "Warranty": "1 year"
+            },
+            "why": "The vari-angle screen and clean autofocus make this the practical choice for filming yourself, which is what most buyers at this price are actually doing.",
+            "rating": 4.5,
+            "reviews": 41,
+            "badge": "deal",
+            "images": [
+                "images/canon-eos-m50.webp"
+            ],
+            "ratingBreakdown": null,
+            "reviewsList": []
+        }
+    ]
+}

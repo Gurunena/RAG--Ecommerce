@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register your store — Consult</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="seller-register">
+
+<nav class="editorial">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="images/consult-mark.png" alt="" width="31" height="31"
+           style="object-fit:contain; flex:none">
+      <div class="logo-copy">
+        <div class="logo-text">Consult</div>
+        <div class="logo-tagline">AI Shopping Consultant</div>
+      </div>
+    </a>
+    <div class="nav-mid">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="products.html" data-nav="products">Shop</a>
+      <a href="index.html#chat" class="nav-ask" data-nav="chat">Ask the consultant</a>
+      <a href="seller-register.html" data-nav="seller-register">For Sellers</a>
+      <div id="navMidExtra" style="display:contents"></div>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn nav-search-btn" onclick="location.href='products.html'" aria-label="Search products">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="7" stroke="#1B2A4A" stroke-width="1.8"/>
+          <path d="M20 20l-3.5-3.5" stroke="#8B2E3C" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='index.html#chat'" aria-label="Ask">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="#8B2E3C"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='cart.html'" aria-label="Cart">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+          <path d="M3 4h2.2l2.3 11.5a1.5 1.5 0 001.5 1.2h8.6a1.5 1.5 0 001.5-1.2L20.5 8H6"
+                stroke="#1B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="20" r="1.3" fill="#8B2E3C"/>
+          <circle cx="17" cy="20" r="1.3" fill="#8B2E3C"/>
+        </svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+      <div id="navAuthArea"></div>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-wrap">
+  <div class="auth-grid">
+    <div class="auth-scene step-1" id="registerScene">
+      <div class="auth-char-stage">
+        <div class="char-walk">
+          <svg class="auth-char" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="150" cy="404" rx="72" ry="11" fill="#1B2A4A" opacity=".08"/>
+            <g class="char-body">
+              <path d="M62 420C62 335 100 288 150 288C200 288 238 335 238 420Z" fill="#1B2A4A"/>
+              <path d="M92 420C92 350 116 312 150 312C184 312 208 350 208 420Z" fill="#24365C"/>
+              <path d="M108 340c0-13 9-22 42-22s42 9 42 22v72c0 5-4 9-9 9h-66c-5 0-9-4-9-9z" fill="#8B2E3C"/>
+              <rect x="140" y="332" width="20" height="13" rx="3" fill="#D4A83C"/>
+              <rect x="134" y="248" width="32" height="46" fill="#C98F6B"/>
+            </g>
+            <g class="char-left-hand pose-fist">
+              <circle cx="96" cy="330" r="18" fill="#DBA57C"/>
+              <g class="acc acc-clipboard on">
+                <rect x="76" y="296" width="34" height="44" rx="4" fill="#F5EFE4" stroke="#1B2A4A" stroke-width="2"/>
+                <rect x="86" y="292" width="14" height="8" rx="2" fill="#8B2E3C"/>
+                <rect x="82" y="308" width="22" height="4" fill="#D9CBB2"/>
+                <rect x="82" y="316" width="22" height="4" fill="#D9CBB2"/>
+                <rect x="82" y="324" width="14" height="4" fill="#D9CBB2"/>
+              </g>
+              <g class="acc acc-badge">
+                <rect x="78" y="300" width="30" height="38" rx="6" fill="#F5EFE4" stroke="#1B2A4A" stroke-width="2"/>
+                <circle cx="93" cy="314" r="7" fill="#D4A83C"/>
+                <rect x="84" y="324" width="18" height="4" rx="2" fill="#D9CBB2"/>
+              </g>
+              <g class="acc acc-key">
+                <circle cx="90" cy="306" r="9" fill="none" stroke="#D4A83C" stroke-width="5"/>
+                <rect x="87" y="313" width="6" height="24" fill="#D4A83C"/>
+                <rect x="87" y="325" width="14" height="5" fill="#D4A83C"/>
+                <rect x="87" y="333" width="10" height="5" fill="#D4A83C"/>
+              </g>
+            </g>
+            <g class="char-head">
+              <ellipse cx="150" cy="180" rx="62" ry="70" fill="#DBA57C"/>
+              <path d="M92 168c0-46 26-76 58-76s58 30 58 76c0 10-4 16-7 8-6-16-22-30-51-30s-45 14-51 30c-3 8-7 2-7-8z" fill="#3A2A22"/>
+              <path d="M82 182c0-42 30-74 68-74s68 32 68 74" stroke="#F3ECDD" stroke-width="11" stroke-linecap="round" fill="none"/>
+              <rect x="66" y="168" width="30" height="52" rx="15" fill="#F3ECDD" stroke="#D9CBB2" stroke-width="2"/>
+              <rect x="204" y="168" width="30" height="52" rx="15" fill="#F3ECDD" stroke="#D9CBB2" stroke-width="2"/>
+              <g class="char-eyes">
+                <ellipse cx="128" cy="182" rx="4.5" ry="6" fill="#4A3226"/>
+                <ellipse cx="172" cy="182" rx="4.5" ry="6" fill="#4A3226"/>
+              </g>
+              <path class="char-mouth" d="M136 210 Q150 218 164 210" stroke="#8B5E43" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            </g>
+            <g class="char-right-hand pose-fist">
+              <circle cx="204" cy="330" r="18" fill="#DBA57C"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="walk-path"><div class="walk-marker"></div></div>
+      <div class="doorway" id="shopDoor">
+        <div class="frame"></div>
+        <div class="glow"></div>
+        <div class="door"><div class="knob"></div></div>
+      </div>
+    </div>
+
+    <div class="auth-card">
+      <h1>Register your store</h1>
+      <p class="auth-sub">Sell to shoppers island-wide — reviewed within 1-2 business days.</p>
+
+      <div class="step-indicator">
+        <div class="step-dot on" data-step="1">1</div>
+        <div class="step-line"></div>
+        <div class="step-dot" data-step="2">2</div>
+        <div class="step-line"></div>
+        <div class="step-dot" data-step="3">3</div>
+      </div>
+
+      <!-- STEP 1 — Business -->
+      <div class="reg-step on" data-step="1">
+        <div class="field"><label>Business name</label><input id="rgBizName" placeholder="Colombo Tech Hub"></div>
+        <div class="field"><label>Business type</label>
+          <select id="rgBizType">
+            <option value="sole_proprietorship">Sole proprietorship</option>
+            <option value="partnership">Partnership</option>
+            <option value="plc">PLC</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Business registration number (optional)</label><input id="rgBizReg" placeholder="PV 00000"></div>
+        <div class="grid2">
+          <div class="field"><label>City</label><input id="rgCity" placeholder="Colombo 03"></div>
+          <div class="field"><label>District</label>
+            <select id="rgDistrict">
+              <option>Colombo</option><option>Gampaha</option><option>Kandy</option>
+              <option>Galle</option><option>Kurunegala</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Primary category</label>
+          <!-- Filled from api/settings/public.php on load so the values are the
+               category KEYS the database validates against ('laptop'), not
+               display labels. These are the fallback if that call fails. -->
+          <select id="rgCategory">
+            <option value="">Select a category</option>
+            <option value="laptop">Laptops &amp; Computers</option>
+            <option value="phone">Phones &amp; Tablets</option>
+            <option value="audio">Audio &amp; Headphones</option>
+            <option value="camera">Cameras</option>
+            <option value="appliance">Home Appliances</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" onclick="regNext(2)">Continue</button>
+      </div>
+
+      <!-- STEP 2 — Owner -->
+      <div class="reg-step" data-step="2">
+        <div class="grid2">
+          <div class="field"><label>First name</label><input id="rgFirst" placeholder="Nimal"></div>
+          <div class="field"><label>Last name</label><input id="rgLast" placeholder="Perera"></div>
+        </div>
+        <div class="field"><label>NIC number</label><input id="rgNIC" placeholder="XXXXXXXXXV or 200XXXXXXXXX"></div>
+        <div class="grid2">
+          <div class="field"><label>Email</label><input type="email" id="rgEmail" placeholder="you@example.com"></div>
+          <div class="field"><label>Phone</label><input id="rgPhone" placeholder="07X XXX XXXX"></div>
+        </div>
+        <div class="field pass-field">
+          <label>Password</label>
+          <input type="password" id="rgPass" placeholder="Create a password">
+          <button type="button" class="pass-toggle" onclick="togglePass('rgPass', this)" aria-label="Show password">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+        </div>
+        <div style="display:flex; gap:10px">
+          <button type="button" class="btn btn-ghost" style="flex:1" onclick="regNext(1)">Back</button>
+          <button type="button" class="btn btn-primary" style="flex:1" onclick="regNext(3)">Continue</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 — Verify -->
+      <div class="reg-step" data-step="3">
+        <div class="field"><label>Bank</label>
+          <select id="rgBank">
+            <option value="">Select bank</option>
+            <option>Bank of Ceylon</option><option>People's Bank</option>
+            <option>Commercial Bank</option><option>Sampath Bank</option>
+            <option>HNB</option><option>Seylan Bank</option><option>Other</option>
+          </select>
+        </div>
+        <div class="grid2">
+          <div class="field"><label>Account number</label><input id="rgAcct" placeholder="0000 0000 0000"></div>
+          <div class="field"><label>Branch</label><input id="rgBranch" placeholder="Nugegoda"></div>
+        </div>
+        <div class="upload-box" onclick="uploadStub()">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4l-5 5M12 4l5 5" stroke="#8B2E3C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3" stroke="#8B2E3C" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div>Upload NIC copy or business registration</div>
+          <div class="muted" style="font-size:11px">PDF/JPG/PNG, max 5MB</div>
+        </div>
+        <label class="auth-check">
+          <input type="checkbox" id="rgAgree">
+          <span>I agree to the <a href="terms.html" target="_blank">Seller Agreement</a> and commission terms</span>
+        </label>
+        <div class="notice"><span>◆</span><span>Your store is reviewed within 1-2 business days before it goes live.</span></div>
+        <div style="display:flex; gap:10px">
+          <button type="button" class="btn btn-ghost" style="flex:1" onclick="regNext(2)">Back</button>
+          <button type="button" class="btn btn-primary" style="flex:1" id="rgSubmit" onclick="handleRegister()">Submit for review</button>
+        </div>
+      </div>
+
+      <p class="auth-foot">Just shopping? <a class="auth-cross-link" href="login.html">Sign in instead</a></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About Us</a> · <a href="contact.html">Contact Us</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a>
+  </div>
+  © 2026 Consult · Made in Sri Lanka<br>
+
+</footer>
+
+<div class="modal-overlay" id="logoutModal" onclick="if(event.target===this) closeLogoutModal()">
+  <div class="modal-box">
+    <h3 class="serif">Sign out?</h3>
+    <p class="muted" style="font-size:13px; margin:8px 0 20px">You'll need to sign in again to view your cart, orders, or dashboard.</p>
+    <div style="display:flex; gap:10px">
+      <button type="button" class="btn btn-ghost" style="flex:1" onclick="closeLogoutModal()">Cancel</button>
+      <button type="button" class="btn" style="flex:1; background:var(--maroon); color:#fff" onclick="confirmLogout()">Sign out</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/seed.js"></script>
+<script src="js/api.js"></script>
+<script src="js/common.js"></script>
+<script src="js/seller-register.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My account — Consult</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="account">
+
+<nav class="editorial">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="images/consult-mark.png" alt="" width="31" height="31"
+           style="object-fit:contain; flex:none">
+      <div class="logo-copy">
+        <div class="logo-text">Consult</div>
+        <div class="logo-tagline">AI Shopping Consultant</div>
+      </div>
+    </a>
+    <div class="nav-mid">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="products.html" data-nav="products">Shop</a>
+      <a href="index.html#chat" class="nav-ask" data-nav="chat">Ask the consultant</a>
+      <a href="seller-register.html" data-nav="seller-register">For Sellers</a>
+      <div id="navMidExtra" style="display:contents"></div>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn nav-search-btn" onclick="location.href='products.html'" aria-label="Search products">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="7" stroke="#1B2A4A" stroke-width="1.8"/>
+          <path d="M20 20l-3.5-3.5" stroke="#8B2E3C" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='index.html#chat'" aria-label="Ask">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="#8B2E3C"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='cart.html'" aria-label="Cart">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+          <path d="M3 4h2.2l2.3 11.5a1.5 1.5 0 001.5 1.2h8.6a1.5 1.5 0 001.5-1.2L20.5 8H6"
+                stroke="#1B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="20" r="1.3" fill="#8B2E3C"/>
+          <circle cx="17" cy="20" r="1.3" fill="#8B2E3C"/>
+        </svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+      <div id="navAuthArea"></div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="account-grid">
+    <div class="account-card" style="text-align:center">
+      <div class="account-avatar-lg" id="acctAvatar" style="margin-left:auto; margin-right:auto"></div>
+      <div class="ptitle" id="acctName" style="font-size:15px"></div>
+      <div class="muted" style="font-size:12.5px; margin-bottom:16px" id="acctRole"></div>
+      <a class="btn btn-ghost btn-block" href="orders.html">Order history</a>
+    </div>
+
+    <div class="account-card">
+      <h1 style="font-size:21px; margin-bottom:4px">My account</h1>
+      <p class="muted" style="font-size:13px; margin-bottom:20px">Keep your contact details up to date so sellers and couriers can reach you.</p>
+
+      <form id="accountForm" autocomplete="off">
+        <div class="field"><label>Full name</label><input id="acFullName" placeholder="Nimal Perera"></div>
+        <div class="field"><label>Email</label><input type="email" id="acEmail" placeholder="you@example.com"></div>
+        <div class="field"><label>Phone</label><input id="acPhone" placeholder="07X XXX XXXX"></div>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About Us</a> · <a href="contact.html">Contact Us</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a>
+  </div>
+  © 2026 Consult · Made in Sri Lanka<br>
+  </footer>
+
+<div class="modal-overlay" id="logoutModal" onclick="if(event.target===this) closeLogoutModal()">
+  <div class="modal-box">
+    <h3 class="serif">Sign out?</h3>
+    <p class="muted" style="font-size:13px; margin:8px 0 20px">You'll need to sign in again to view your cart, orders, or dashboard.</p>
+    <div style="display:flex; gap:10px">
+      <button type="button" class="btn btn-ghost" style="flex:1" onclick="closeLogoutModal()">Cancel</button>
+      <button type="button" class="btn" style="flex:1; background:var(--maroon); color:#fff" onclick="confirmLogout()">Sign out</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/seed.js"></script>
+<script src="js/api.js"></script>
+<script src="js/common.js"></script>
+<script src="js/account.js"></script>
+</body>
+</html>

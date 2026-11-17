@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Consult</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="privacy">
+
+<nav class="editorial">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="images/consult-mark.png" alt="" width="31" height="31"
+           style="object-fit:contain; flex:none">
+      <div class="logo-copy">
+        <div class="logo-text">Consult</div>
+        <div class="logo-tagline">AI Shopping Consultant</div>
+      </div>
+    </a>
+    <div class="nav-mid">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="products.html" data-nav="products">Shop</a>
+      <a href="index.html#chat" class="nav-ask" data-nav="chat">Ask the consultant</a>
+      <a href="seller-register.html" data-nav="seller-register">For Sellers</a>
+      <div id="navMidExtra" style="display:contents"></div>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn nav-search-btn" onclick="location.href='products.html'" aria-label="Search products">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="7" stroke="#1B2A4A" stroke-width="1.8"/>
+          <path d="M20 20l-3.5-3.5" stroke="#8B2E3C" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='index.html#chat'" aria-label="Ask">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="#8B2E3C"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='cart.html'" aria-label="Cart">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+          <path d="M3 4h2.2l2.3 11.5a1.5 1.5 0 001.5 1.2h8.6a1.5 1.5 0 001.5-1.2L20.5 8H6"
+                stroke="#1B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="20" r="1.3" fill="#8B2E3C"/>
+          <circle cx="17" cy="20" r="1.3" fill="#8B2E3C"/>
+        </svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+      <div id="navAuthArea"></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Last updated 29 July 2026</div>
+  <h1 class="serif">Privacy Policy</h1>
+  <p>This is placeholder policy text for the purposes of this coursework build — structurally complete, not legally reviewed.</p>
+</div>
+
+<div class="container-narrow" style="padding-bottom:40px">
+  <div class="legal-section">
+    <h2>1. Data we collect</h2>
+    <p>When you create an account, browse the catalogue, or place an order, Consult may collect:</p>
+    <ul>
+      <li>Account details — name, email address, phone number, and password (stored securely, never in plain text on a real deployment).</li>
+      <li>Order information — delivery address, items purchased, and payment method selected (we do not store full card numbers).</li>
+      <li>Usage data — pages visited, products viewed, and messages sent to the shopping consultant, used to improve recommendations.</li>
+      <li>Device information — browser type and approximate location, used only for fraud prevention and basic analytics.</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>2. How we use it</h2>
+    <p>Your data is used to fulfil orders, personalise product recommendations, communicate order updates, and prevent fraud. Sellers only ever see the shipping details needed to fulfil an order — never your email address or payment details. We do not sell personal data to third parties.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>3. Data retention</h2>
+    <p>Account and order data is retained for as long as your account is active, and for a reasonable period afterward to satisfy accounting and dispute-resolution obligations. You may request deletion at any time via the contact page.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>4. Your rights</h2>
+    <p>You have the right to access, correct, or delete the personal data we hold about you, and to object to certain processing. Requests can be made through your account settings or by contacting us directly.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>5. Contact</h2>
+    <p>Questions about this policy can be sent to <b>privacy@consult.lk</b> or via the <a href="contact.html">contact page</a>.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About Us</a> · <a href="contact.html">Contact Us</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a>
+  </div>
+  © 2026 Consult · Made in Sri Lanka<br>
+  </footer>
+<div class="modal-overlay" id="logoutModal" onclick="if(event.target===this) closeLogoutModal()">
+  <div class="modal-box">
+    <h3 class="serif">Sign out?</h3>
+    <p class="muted" style="font-size:13px; margin:8px 0 20px">You'll need to sign in again to view your cart, orders, or dashboard.</p>
+    <div style="display:flex; gap:10px">
+      <button type="button" class="btn btn-ghost" style="flex:1" onclick="closeLogoutModal()">Cancel</button>
+      <button type="button" class="btn" style="flex:1; background:var(--maroon); color:#fff" onclick="confirmLogout()">Sign out</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/seed.js"></script>
+<script src="js/api.js"></script>
+<script src="js/common.js"></script>
+</body>
+</html>

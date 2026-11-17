@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms &amp; Conditions — Consult</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="terms">
+
+<nav class="editorial">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="images/consult-mark.png" alt="" width="31" height="31"
+           style="object-fit:contain; flex:none">
+      <div class="logo-copy">
+        <div class="logo-text">Consult</div>
+        <div class="logo-tagline">AI Shopping Consultant</div>
+      </div>
+    </a>
+    <div class="nav-mid">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="products.html" data-nav="products">Shop</a>
+      <a href="index.html#chat" class="nav-ask" data-nav="chat">Ask the consultant</a>
+      <a href="seller-register.html" data-nav="seller-register">For Sellers</a>
+      <div id="navMidExtra" style="display:contents"></div>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn nav-search-btn" onclick="location.href='products.html'" aria-label="Search products">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="7" stroke="#1B2A4A" stroke-width="1.8"/>
+          <path d="M20 20l-3.5-3.5" stroke="#8B2E3C" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='index.html#chat'" aria-label="Ask">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="#8B2E3C"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='cart.html'" aria-label="Cart">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+          <path d="M3 4h2.2l2.3 11.5a1.5 1.5 0 001.5 1.2h8.6a1.5 1.5 0 001.5-1.2L20.5 8H6"
+                stroke="#1B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="20" r="1.3" fill="#8B2E3C"/>
+          <circle cx="17" cy="20" r="1.3" fill="#8B2E3C"/>
+        </svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+      <div id="navAuthArea"></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Last updated 29 July 2026</div>
+  <h1 class="serif">Terms &amp; Conditions</h1>
+  <p>This is placeholder terms text for the purposes of this coursework build — structurally complete, not legally reviewed.</p>
+</div>
+
+<div class="container-narrow" style="padding-bottom:40px">
+  <div class="legal-section">
+    <h2>1. Acceptance of terms</h2>
+    <p>By creating an account, browsing the catalogue, or placing an order on Consult, you agree to be bound by these terms. If you do not agree, please do not use the service.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>2. User responsibilities</h2>
+    <ul>
+      <li>Provide accurate account and delivery information.</li>
+      <li>Keep your password confidential and notify us of any unauthorised access.</li>
+      <li>Use the shopping consultant and marketplace for lawful purposes only.</li>
+      <li>Pay for orders placed through the platform in full at checkout.</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>3. Seller obligations</h2>
+    <ul>
+      <li>List accurate stock, pricing, and specification data for every product.</li>
+      <li>Honour the warranty terms stated on each listing.</li>
+      <li>Dispatch orders within the timeframe shown at checkout and cooperate with Consult's delivery tracking.</li>
+      <li>Sellers found submitting false specifications or failing to fulfil confirmed orders may be suspended.</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>4. Payments &amp; escrow</h2>
+    <p>Payment is captured at checkout and held until delivery is confirmed. Funds are released to the seller only after the buyer confirms receipt or the delivery window closes without a dispute being raised.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>5. Limitation of liability</h2>
+    <p>Consult acts as a marketplace and shopping consultant, not as the manufacturer or seller of record for any product. To the fullest extent permitted by law, Consult is not liable for indirect or consequential losses arising from a seller's failure to honour a listing, subject to your statutory rights as a consumer.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>6. Governing law</h2>
+    <p>These terms are governed by the laws of the Democratic Socialist Republic of Sri Lanka, and any disputes shall be subject to the exclusive jurisdiction of the courts of Colombo.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About Us</a> · <a href="contact.html">Contact Us</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a>
+  </div>
+  © 2026 Consult · Made in Sri Lanka<br>
+
+</footer>
+
+<div class="modal-overlay" id="logoutModal" onclick="if(event.target===this) closeLogoutModal()">
+  <div class="modal-box">
+    <h3 class="serif">Sign out?</h3>
+    <p class="muted" style="font-size:13px; margin:8px 0 20px">You'll need to sign in again to view your cart, orders, or dashboard.</p>
+    <div style="display:flex; gap:10px">
+      <button type="button" class="btn btn-ghost" style="flex:1" onclick="closeLogoutModal()">Cancel</button>
+      <button type="button" class="btn" style="flex:1; background:var(--maroon); color:#fff" onclick="confirmLogout()">Sign out</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/seed.js"></script>
+<script src="js/api.js"></script>
+<script src="js/common.js"></script>
+</body>
+</html>

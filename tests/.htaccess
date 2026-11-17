@@ -1,0 +1,16 @@
+# tests/ — CLI test suites. Nothing here may be reached over HTTP.
+#
+# Each suite also refuses to run unless PHP_SAPI is 'cli', so this is the
+# second of two locks — the same arrangement as api/tools/. The guard alone
+# was working (a browser got its 403 from PHP, not Apache), but it depended
+# on every future test file remembering to include it.
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
+
+Options -Indexes
